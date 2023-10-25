@@ -1,14 +1,21 @@
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { deleteContact } from '../redux/contactSlice';
 
-const Contact = ({ contact: { name, phone } }) => (
-  <li>
-    {name}
-    {' '}
-    -
-    {' '}
-    {phone}
-  </li>
-);
+const Contact = ({ contact }) => {
+  const dispatch = useDispatch();
+  return (
+    <li>
+      {contact.name}
+      {' '}
+      -
+      {' '}
+      {contact.phone}
+      {' '}
+      <span><button style={{ backgroundColor: 'red' }} onClick={() => dispatch(deleteContact(contact))} type="button">Remove</button></span>
+    </li>
+  );
+};
 
 Contact.propTypes = {
   contact: PropTypes.shape({
