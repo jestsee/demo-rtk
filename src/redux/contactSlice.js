@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import contacts from '../contacts';
+import contactApi from './contactApi';
 
 // 1. create slice
 const contactSlice = createSlice({
   name: 'contacts',
-  initialState: contacts,
+  initialState: [],
   reducers: {
     addContact: (currentContacts, { payload }) => [
       ...currentContacts,
@@ -14,6 +14,12 @@ const contactSlice = createSlice({
       ...currentContacts.filter((contact) => contact.id !== payload.id)
     ],
     resetContact: () => []
+  },
+  extraReducers: (builder) => {
+    builder.addMatcher(
+      contactApi.endpoints.getContacts.matchFulfilled,
+      (_, { payload }) => payload.contacts
+    );
   }
 });
 
