@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { deleteContact } from '../redux/contactSlice';
 
 const Contact = ({ contact }) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); // 5. dispatch function to update the state
   return (
     <li>
       {contact.name}

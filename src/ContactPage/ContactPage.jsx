@@ -5,7 +5,7 @@ import ContactList from './ContactList';
 import EmptyContactButton from './EmptyContactButton';
 
 const ContactPage = () => {
-  const contacts = useSelector(selectContacts);
+  const contacts = useSelector(selectContacts); // 4.
   return (
     <>
       <h1>This is contact page</h1>
