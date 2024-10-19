@@ -9,4 +9,5 @@ const App = () => (
   </Provider>
 );
 
+// 6. dev tools
 export default App;
